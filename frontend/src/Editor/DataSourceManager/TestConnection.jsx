@@ -47,11 +47,15 @@ export const TestConnection = ({ kind, options, onConnectionTestFailed, darkMode
   return (
     <div>
       {connectionStatus === 'failed' && (
-        <span className="badge bg-red-lt">{t('globals.noConnection', 'could not connect')}</span>
+        <span data-cy={`test-connection-failed-text`} className="badge bg-red-lt">
+          {t('globals.noConnection', 'could not connect')}
+        </span>
       )}
 
       {connectionStatus === 'success' && (
-        <span className="badge bg-green-lt">{t('globals.connectionVerifeid', 'connection verified')}</span>
+        <span data-cy={`test-connection-verified-text`} className="badge bg-green-lt">
+          {t('globals.connectionVerifeid', 'connection verified')}
+        </span>
       )}
 
       {connectionStatus === 'unknown' && (
@@ -59,6 +63,7 @@ export const TestConnection = ({ kind, options, onConnectionTestFailed, darkMode
           className={`datasource-modal-button ${darkMode && 'dark-button'}`}
           disabled={isTesting || connectionStatus === 'success'}
           onClick={testDataSource}
+          data-cy={`test-connection-button`}
         >
           {buttonText}
         </button>
