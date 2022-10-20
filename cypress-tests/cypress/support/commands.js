@@ -200,7 +200,7 @@ Cypress.Commands.add("modifyCanvasSize", (x, y) => {
 Cypress.Commands.add("renameApp", (appName) => {
   cy.clearAndType(commonSelectors.appNameInput, appName);
   cy.waitForAutoSave();
-})
+});
 
 Cypress.Commands.add(
   "clearCodeMirror",
@@ -220,4 +220,3 @@ Cypress.Commands.add(
       });
   }
 );
-
